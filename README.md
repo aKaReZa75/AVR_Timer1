@@ -37,10 +37,102 @@ Timer1 is a powerful 16-bit timer/counter peripheral in the ATmega328P microcont
 # 🔗 Resources
   Here you'll find a collection of useful links and videos related to the topic of AVR microcontrollers.  
   
-> [!TIP]
+# **TIMER1 Overview**
+
+```
+TIMER1 Overview
+├── Documentation
+│   ├─ [TIMER1 Modes]
+│   │   ├─ Registers — TCCR1A, TCCR1B (WGM bits)
+│   │   ├─ Modes — Normal, CTC, Fast PWM, Phase Correct PWM, Input Capture
+│   │   └─ Examples — Mode switching and timing behavior
+│   │
+│   ├─ [TIMER1 Prescaler]
+│   │   ├─ Register — TCCR1B (CS12:0)
+│   │   ├─ Prescaler — Clock division and timer speed
+│   │   └─ Effects — Impact on overflow and resolution
+│   │
+│   ├─ [TIMER1 Interrupts]
+│   │   ├─ Registers — TIMSK1, TIFR1
+│   │   ├─ Sources — Overflow, Compare Match A/B, Input Capture
+│   │   └─ Control — Enable, flag clear, and ISR guide
+│   │
+│   ├─ [TIMER1 Outputs]
+│   │   ├─ Registers — TCCR1A (COM bits), OC1A/B
+│   │   ├─ Modes — Toggle, Clear, Set (normal/inverting)
+│   │   └─ Usage — External output waveforms
+│   │
+│   ├─ [TIMER1 Other Registers]
+│   │   ├─ TCNT1 — 16-bit Timer/Counter value
+│   │   ├─ OCR1A — Compare match A value
+│   │   ├─ OCR1B — Compare match B value
+│   │   └─ ICR1  — Input Capture Register
+│   │
+│   ├─ [TIMER1 Time Calculation]
+│   │   ├─ Inputs — TCNT1, OCR1A, prescaler
+│   │   └─ Output — Overflow and match intervals
+│   │
+│   ├─ [TIMER1 PWM Calculation]
+│   │   ├─ Modes — Fast PWM, Phase Correct
+│   │   └─ Math — PWM frequency and duty cycle
+│   │
+│   └─ [TIMER1 Capture Calculation]
+│       ├─ Register — ICR1 (captured value)
+│       ├─ Math — Pulse width and frequency formulas
+│       └─ Usage — External signal measurement
+│
+└── Registers
+    ├─ [TCCR1A]  — Output Compare behavior & Waveform Generation Mode (Part 1)
+    ├─ [TCCR1B]  — Clock Source selection, Prescaler setting & WGM bits (Part 2)
+    ├─ [TCNT1]   — 16-bit Timer/Counter register — Holds current timer count
+    ├─ [OCR1A]   — Output Compare Register A — Match value for Channel A
+    ├─ [OCR1B]   — Output Compare Register B — Match value for Channel B
+    ├─ [ICR1]    — Input Capture Register — Used for measuring external signal timing
+    ├─ [TIMSK1]  — Interrupt Mask Register — Enable Timer1 interrupts
+    └─ [TIFR1]   — Interrupt Flag Register — Indicates interrupt events
+```
+
+> [!TIP]  
 > The resources are detailed in the sections below.  
 > To access any of them, simply click on the corresponding blue link.
 
+---
+
+## Documentation Links
+
+- [TIMER1 Modes](./TIMER1_Modes.md)  
+  ---  
+  This document provides a detailed overview of all waveform generation modes of Timer1, including Normal, CTC, Fast PWM, Phase Correct PWM, and Input Capture, with register configurations and practical examples.
+
+- [TIMER1 Prescaler](./TIMER1_Prescaler.md)  
+  ---  
+  This document explains how to configure the clock source and prescaler for Timer1, including detailed descriptions of all clock select bits and their effects on timer resolution and overflow frequency.
+
+- [TIMER1 Interrupts](./TIMER1_Interrupts.md)  
+  ---  
+  This file covers all interrupt-related features of Timer1 such as overflow, compare match A/B, and input capture interrupts. It explains how to enable and clear them properly using TIMSK1 and TIFR1 registers.
+
+- [TIMER1 Outputs](./TIMER1_Outputs.md)  
+  ---  
+  This document explains Compare Output Modes and how they affect the OC1A and OC1B pins in different timer modes, with practical configuration examples for normal, inverting, and non-inverting outputs.
+
+- [TIMER1 Other Registers](./TIMER1_OtherRegisters.md)  
+  ---  
+  This file provides a detailed description of Timer1 data and compare registers: `TCNT1`, `OCR1A`, `OCR1B`, and `ICR1`. It explains how each register works, including bit-level information and their roles in compare match and input capture operations.
+
+- [TIMER1 Time Calculation](./TIMER1_Time_Calc.md)  
+  ---  
+  This document helps calculate the overflow time and compare match intervals in Normal and CTC modes based on prescaler and system clock, with practical examples and formulas tailored to Timer1's 16-bit resolution.
+
+- [TIMER1 PWM Calculation](./TIMER1_PWM_Calc.md)  
+  ---  
+  This file shows how to calculate the output PWM frequency for Timer1 in both Fast PWM and Phase Correct PWM modes, using OCR1A or ICR1 as TOP and different prescaler settings.
+  
+- [TIMER1 Capture Calculation](./TIMER1_Capture_Calc.md)  
+  ---  
+  This file explains how to calculate timing and frequency using Input Capture with Timer1, based on ICR1 values, system clock, and prescaler. Includes formulas for pulse width and signal frequency measurement.
+  
+  
 > [!CAUTION]
 > This tutorial has not yet **started!**
 
